@@ -1,0 +1,74 @@
+body {
+  background-color: rgb(98, 98, 98);
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#mainPanel {
+  background-color: rgb(21, 135, 153);
+  height: 250px;
+  color: white;
+  text-align: center;
+}
+#secondaryPanel {
+  background-color: white;
+  height: 25px;
+}
+#newColorsBtn {
+  width: 150px;
+  height: 25px;
+  text-align: center;
+  color: rgb(21, 135, 153);
+}
+#newColorsBtn:hover {
+  background-color: rgb(21, 135, 153);
+  color: white;
+  cursor: pointer;
+}
+#levelHardBtn {
+  width: 150px;
+  height: 25px;
+  text-align: center;
+  color: rgb(255, 115, 91);
+}
+#levelHardBtn:hover {
+  background-color: rgb(255, 115, 91);
+  color: white;
+  cursor: pointer;
+}
+#levelMediumBtn {
+  width: 150px;
+  height: 25px;
+  text-align: center;
+  color: rgb(209, 193, 45);
+}
+#levelMediumBtn:hover {
+  background-color: rgb(209, 193, 45);
+  color: white;
+  cursor: pointer;
+}
+#levelEasyBtn {
+  width: 150px;
+  height: 25px;
+  text-align: center;
+  color: rgb(52, 149, 0);
+}
+#levelEasyBtn:hover {
+  background-color: rgb(52, 149, 0);
+  color: white;
+  cursor: pointer;
+}
+#status {
+  color: rgb(21, 135, 153);
+}
+#statusValue {
+  color: rgb(52, 149, 0);
+}
+.oneOfColors {
+  width: 250px;
+  height: 220px;
+  border-radius: 25px;
+  cursor: pointer;
+}

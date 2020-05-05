@@ -1,13 +1,61 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>
       RGB Guessing Game
     </title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
-  <body>
+  <body onload="newColor()">
+    <div id="mainPanel" class="container-fluid">
+      <h1 class="display-4">THE ULTRA-GREAT</h1>
+      <h1 class="display-3">
+        <strong>RGB(<span id="red">0</span>,<span id="green">0</span>,<span id="blue">0</span>)</strong>
+      </h1>
+      <h1 class="display-4">GUESSING GAME</h1>
+    </div>
+    <div id="secondaryPanel" class="container-fluid p-0">
+      <div class="row">
+      <div class="col">
+        <div onclick="newColor()" id="newColorsBtn" class="float-left">
+          <strong>NEW COLORS</strong>
+        </div>
+      </div>
+      <div class="col text-center">
+        <span id="status"><strong>STATUS: <span id="statusValue"></strong></span></span>
+      </div>
+      <div class="col">
+        <div onclick="" id="levelHardBtn" class="float-right">
+          <strong>HARD</strong>
+        </div>
+        <div onclick="" id="levelMediumBtn" class="float-right">
+          <strong>MEDIUM</strong>
+        </div>
+        <div onclick="" id="levelEasyBtn" class="float-right">
+          <strong>EASY</strong>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div id="gamePanel" class="container justify-content-center">
+      <div class="row mt-2 justify-content-md-center">
+        <div id="color1" class="oneOfColors col col-lg-3"></div>
+        <div id="color2" class="oneOfColors col ml-2 mr-2 col-lg-3"></div>
+        <div id="color3" class="oneOfColors col col-lg-3"></div>
+      </div>
+      <div class="row mt-2 justify-content-md-center">
+        <div id="color4" class="oneOfColors col col-lg-3"></div>
+        <div id="color5" class="oneOfColors col ml-2 mr-2 col-lg-3"></div>
+        <div id="color6" class="oneOfColors col col-lg-3"></div>
+      </div>
+      <div class="row mt-2 justify-content-md-center">
+        <div id="color7" class="oneOfColors col col-lg-3"></div>
+        <div id="color8" class="oneOfColors col ml-2 mr-2 col-lg-3"></div>
+        <div id="color9" class="oneOfColors col col-lg-3"></div>
+      </div>
+    </div>
   </body>
   <script type="text/javascript" src="code.js"></script>
 </html>
