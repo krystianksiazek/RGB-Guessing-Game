@@ -38,6 +38,11 @@ body {
   color: white;
   cursor: pointer;
 }
+.levelHardBtnActive {
+  background-color: rgb(255, 115, 91);
+  color: white !important;
+  cursor: pointer;
+}
 #levelMediumBtn {
   width: 150px;
   height: 25px;
@@ -49,6 +54,11 @@ body {
   color: white;
   cursor: pointer;
 }
+.levelMediumBtnActive {
+  background-color: rgb(209, 193, 45);
+  color: white !important;
+  cursor: pointer;
+}
 #levelEasyBtn {
   width: 150px;
   height: 25px;
@@ -58,6 +68,11 @@ body {
 #levelEasyBtn:hover {
   background-color: rgb(52, 149, 0);
   color: white;
+  cursor: pointer;
+}
+.levelEasyBtnActive {
+  background-color: rgb(52, 149, 0);
+  color: white !important;
   cursor: pointer;
 }
 #status {
