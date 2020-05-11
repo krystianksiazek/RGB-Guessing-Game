@@ -2,6 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>
@@ -12,50 +15,70 @@
     <div id="mainPanel" class="container-fluid">
       <h1 class="display-4">THE ULTRA-GREAT</h1>
       <h1 class="display-3">
-        <strong>RGB(<span id="red">0</span>, <span id="green">0</span>, <span id="blue">0</span>)</strong>
+        <strong>RGB(<span id="red">0</span>,
+          <span id="green">0</span>,
+          <span id="blue">0</span>)</strong>
       </h1>
       <h1 class="display-4">GUESSING GAME</h1>
     </div>
     <div id="secondaryPanel" class="container-fluid p-0">
       <div class="row">
-      <div class="col">
-        <div onclick="newColor()" id="newColorsBtn" class="float-left">
-          <strong>NEW COLORS</strong>
+        <div class="col">
+          <div onclick="newColor()" id="newColorsBtn" class="float-left">
+            <strong>NEW COLORS</strong>
+          </div>
         </div>
-      </div>
-      <div class="col text-center">
-        <span id="status"><strong>STATUS: <span id="statusValue"></strong></span></span>
-      </div>
-      <div class="col">
-        <div onclick="hardDifficulty()" id="levelHardBtn" class="float-right">
+        <div class="col text-center">
+          <span id="status">
+            <strong>STATUS:
+              <span id="statusValue"></strong></span></span>
+        </div>
+        <div class="col">
+        <div onclick="hardDifficulty()" id="levelHardBtn" class="float-right d-none d-xl-block">
           <strong>HARD</strong>
         </div>
-        <div onclick="mediumDifficulty()" id="levelMediumBtn" class="float-right">
+        <div onclick="mediumDifficulty()" id="levelMediumBtn" class="float-right d-none d-xl-block">
           <strong>MEDIUM</strong>
         </div>
-        <div onclick="easyDifficulty()" id="levelEasyBtn" class="float-right">
+        <div onclick="easyDifficulty()" id="levelEasyBtn" class="float-right d-none d-xl-block">
           <strong>EASY</strong>
+        </div>
+        <div class="btn-group dropleft float-right d-xl-none">
+          <button type="button" class="btn btn-danger dropdown-toggle rounded-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown">
+            <strong id="dropdownDifficulty"></strong>
+          </button>
+          <div class="dropdown-menu">
+            <a onclick="easyDifficulty()" id="levelEasyBtn" class="dropdown-item">
+              <strong>EASY</strong>
+            </a>
+            <a onclick="mediumDifficulty()" id="levelMediumBtn" class="dropdown-item">
+              <strong>MEDIUM</strong>
+            </a>
+            <a onclick="hardDifficulty()" id="levelHardBtn" class="dropdown-item">
+              <strong>HARD</strong>
+            </a>
+          </div>
         </div>
       </div>
     </div>
+  </div>
+  <div id="gamePanel" class="container justify-content-center">
+    <div id="lvlEasy" class="row mt-2 justify-content-md-center">
+      <div onclick="checkHit(this, this.id)" id="color1" class="oneOfColors col col-lg-3"></div>
+      <div onclick="checkHit(this, this.id)" id="color2" class="oneOfColors col ml-2 mr-2 col-lg-3"></div>
+      <div onclick="checkHit(this, this.id)" id="color3" class="oneOfColors col col-lg-3"></div>
     </div>
-    <div id="gamePanel" class="container justify-content-center">
-      <div id="lvlEasy" class="row mt-2 justify-content-md-center">
-        <div onclick="checkHit(this, this.id)" id="color1" class="oneOfColors col col-lg-3"></div>
-        <div onclick="checkHit(this, this.id)" id="color2" class="oneOfColors col ml-2 mr-2 col-lg-3"></div>
-        <div onclick="checkHit(this, this.id)" id="color3" class="oneOfColors col col-lg-3"></div>
-      </div>
-      <div id="lvlMedium" class="row mt-2 justify-content-md-center">
-        <div onclick="checkHit(this, this.id)" id="color4" class="oneOfColors col col-lg-3"></div>
-        <div onclick="checkHit(this, this.id)" id="color5" class="oneOfColors col ml-2 mr-2 col-lg-3"></div>
-        <div onclick="checkHit(this, this.id)" id="color6" class="oneOfColors col col-lg-3"></div>
-      </div>
-      <div id="lvlHard" class="row mt-2 justify-content-md-center">
-        <div onclick="checkHit(this, this.id)" id="color7" class="oneOfColors col col-lg-3"></div>
-        <div onclick="checkHit(this, this.id)" id="color8" class="oneOfColors col ml-2 mr-2 col-lg-3"></div>
-        <div onclick="checkHit(this, this.id)" id="color9" class="oneOfColors col col-lg-3"></div>
-      </div>
+    <div id="lvlMedium" class="row mt-2 justify-content-md-center">
+      <div onclick="checkHit(this, this.id)" id="color4" class="oneOfColors col col-lg-3"></div>
+      <div onclick="checkHit(this, this.id)" id="color5" class="oneOfColors col ml-2 mr-2 col-lg-3"></div>
+      <div onclick="checkHit(this, this.id)" id="color6" class="oneOfColors col col-lg-3"></div>
     </div>
-  </body>
-  <script type="text/javascript" src="code.js"></script>
+    <div id="lvlHard" class="row mt-2 justify-content-md-center">
+      <div onclick="checkHit(this, this.id)" id="color7" class="oneOfColors col col-lg-3"></div>
+      <div onclick="checkHit(this, this.id)" id="color8" class="oneOfColors col ml-2 mr-2 col-lg-3"></div>
+      <div onclick="checkHit(this, this.id)" id="color9" class="oneOfColors col col-lg-3"></div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="code.js"></script>
 </html>

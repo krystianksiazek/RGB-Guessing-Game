@@ -1,4 +1,6 @@
 var statusValue = document.getElementById("statusValue");
+var dropdownDifficulty = document.getElementById("dropdownDifficulty");
+var dropdownDifficultyBtn = document.getElementById("dropdown");
 var red = document.getElementById("red");
 var green = document.getElementById("green");
 var blue = document.getElementById("blue");
@@ -14,7 +16,10 @@ var correctGreen;
 var correctBlue;
 var colors = document.querySelectorAll(".oneOfColors");
 var tryNums = 1;
-statusValue.textContent = "Ready / Difficulty - hard";
+statusValue.textContent = "Ready";
+dropdownDifficulty.textContent = "HARD";
+console.log(dropdownDifficultyBtn);
+
 function randomRed() {
   return Math.floor(Math.random() * (+max - +min)) + +min;;
 }
@@ -31,7 +36,10 @@ function easyDifficulty() {
   document.getElementById("lvlMedium").style.visibility = "hidden";
   document.getElementById("lvlHard").style.visibility = "hidden";
   maxDependDifficulty = 3;
-  statusValue.textContent = "Ready / Difficulty - easy";
+  dropdownDifficulty.textContent = "EASY";
+  dropdownDifficultyBtn.classList.remove("btn-danger");
+  dropdownDifficultyBtn.classList.remove("btn-warning");
+  dropdownDifficultyBtn.classList.add("btn-success");
   easyCaller.classList.add("levelEasyBtnActive");
   mediumCaller.classList.remove("levelMediumBtnActive");
   hardCaller.classList.remove("levelHardBtnActive");
@@ -41,7 +49,10 @@ function mediumDifficulty() {
   document.getElementById("lvlMedium").style.visibility = "visible";
   document.getElementById("lvlHard").style.visibility = "hidden";
   maxDependDifficulty = 6;
-  statusValue.textContent = "Ready / Difficulty - medium";
+  dropdownDifficulty.textContent = "MEDIUM";
+  dropdownDifficultyBtn.classList.remove("btn-danger");
+  dropdownDifficultyBtn.classList.add("btn-warning");
+  dropdownDifficultyBtn.classList.remove("btn-success");
   easyCaller.classList.remove("levelEasyBtnActive");
   mediumCaller.classList.add("levelMediumBtnActive");
   hardCaller.classList.remove("levelHardBtnActive");
@@ -51,7 +62,10 @@ function hardDifficulty() {
   document.getElementById("lvlMedium").style.visibility = "visible";
   document.getElementById("lvlHard").style.visibility = "visible";
   maxDependDifficulty = 9;
-  statusValue.textContent = "Ready / Difficulty - hard";
+  dropdownDifficulty.textContent = "HARD";
+  dropdownDifficultyBtn.classList.add("btn-danger");
+  dropdownDifficultyBtn.classList.remove("btn-warning");
+  dropdownDifficultyBtn.classList.remove("btn-success");
   easyCaller.classList.remove("levelEasyBtnActive");
   mediumCaller.classList.remove("levelMediumBtnActive");
   hardCaller.classList.add("levelHardBtnActive");
@@ -69,6 +83,7 @@ function newColor() {
   red.textContent = correctRed;
   green.textContent = correctGreen;
   blue.textContent = correctBlue;
+  statusValue.textContent = "Ready";
   for (i = 0; i <= (colors.length - 1); i++) {
     colors[i].style.background = "rgb(" + randomRed() + ", " + randomBlue() + ", " + randomGreen() + ")";
     if (i < maxDependDifficulty) {
@@ -80,16 +95,16 @@ function newColor() {
   }
   colors[correctColorSquare].style.background = "rgb(" + correctRed + ", " + correctGreen + ", " + correctBlue + ")";
   if (maxDependDifficulty == 9) {
-    statusValue.textContent = "Ready / Difficulty - hard";
+    dropdownDifficulty.textContent = "HARD";
   } else if (maxDependDifficulty == 6) {
-    statusValue.textContent = "Ready / Difficulty - medium";
+    dropdownDifficulty.textContent = "MEDIUM";
   } else {
-    statusValue.textContent = "Ready / Difficulty - easy";
+    dropdownDifficulty.textContent = "EASY";
   }
 }
 function checkHit(target, targetID) {
   if (targetID === "color" + (correctColorSquare + 1)) {
-    statusValue.textContent = "You win! Number of tries " + tryNums;
+    statusValue.textContent = "You win! Number of tries: " + tryNums;
     for (i = 0; i <= (maxDependDifficulty - 1); i++) {
       colors[i].style.visibility = "visible";
       colors[i].setAttribute("onclick", "");
