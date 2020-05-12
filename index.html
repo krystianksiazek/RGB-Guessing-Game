@@ -22,8 +22,8 @@
       <h1 class="display-4">GUESSING GAME</h1>
     </div>
     <div id="secondaryPanel" class="container-fluid p-0">
-      <div class="row">
-        <div class="col">
+      <div class="row m-0">
+        <div class="col p-0">
           <div onclick="newColor()" id="newColorsBtn" class="float-left">
             <strong>NEW COLORS</strong>
           </div>
@@ -33,7 +33,7 @@
             <strong>STATUS:
               <span id="statusValue"></strong></span></span>
         </div>
-        <div class="col">
+        <div class="col p-0">
         <div onclick="hardDifficulty()" id="levelHardBtn" class="float-right d-none d-xl-block">
           <strong>HARD</strong>
         </div>
@@ -63,20 +63,20 @@
     </div>
   </div>
   <div id="gamePanel" class="container justify-content-center">
-    <div id="lvlEasy" class="row mt-2 justify-content-md-center">
-      <div onclick="checkHit(this, this.id)" id="color1" class="oneOfColors col col-lg-3"></div>
-      <div onclick="checkHit(this, this.id)" id="color2" class="oneOfColors col ml-2 mr-2 col-lg-3"></div>
-      <div onclick="checkHit(this, this.id)" id="color3" class="oneOfColors col col-lg-3"></div>
+    <div id="lvlEasy" class="row mt-2 justify-content-md-center d-flex flex-nowrap">
+      <div onclick="checkHit(this, this.id)" id="color1" class="oneOfColors"></div>
+      <div onclick="checkHit(this, this.id)" id="color2" class="oneOfColors ml-2 mr-2"></div>
+      <div onclick="checkHit(this, this.id)" id="color3" class="oneOfColors"></div>
     </div>
-    <div id="lvlMedium" class="row mt-2 justify-content-md-center">
-      <div onclick="checkHit(this, this.id)" id="color4" class="oneOfColors col col-lg-3"></div>
-      <div onclick="checkHit(this, this.id)" id="color5" class="oneOfColors col ml-2 mr-2 col-lg-3"></div>
-      <div onclick="checkHit(this, this.id)" id="color6" class="oneOfColors col col-lg-3"></div>
+    <div id="lvlMedium" class="row mt-2 justify-content-md-center d-flex flex-nowrap">
+      <div onclick="checkHit(this, this.id)" id="color4" class="oneOfColors"></div>
+      <div onclick="checkHit(this, this.id)" id="color5" class="oneOfColors ml-2 mr-2"></div>
+      <div onclick="checkHit(this, this.id)" id="color6" class="oneOfColors"></div>
     </div>
-    <div id="lvlHard" class="row mt-2 justify-content-md-center">
-      <div onclick="checkHit(this, this.id)" id="color7" class="oneOfColors col col-lg-3"></div>
-      <div onclick="checkHit(this, this.id)" id="color8" class="oneOfColors col ml-2 mr-2 col-lg-3"></div>
-      <div onclick="checkHit(this, this.id)" id="color9" class="oneOfColors col col-lg-3"></div>
+    <div id="lvlHard" class="row mt-2 justify-content-md-center d-flex flex-nowrap">
+      <div onclick="checkHit(this, this.id)" id="color7" class="oneOfColors"></div>
+      <div onclick="checkHit(this, this.id)" id="color8" class="oneOfColors ml-2 mr-2"></div>
+      <div onclick="checkHit(this, this.id)" id="color9" class="oneOfColors"></div>
     </div>
   </div>
 </body>

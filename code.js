@@ -18,20 +18,15 @@ var colors = document.querySelectorAll(".oneOfColors");
 var tryNums = 1;
 statusValue.textContent = "Ready";
 dropdownDifficulty.textContent = "HARD";
-console.log(dropdownDifficultyBtn);
 
-function randomRed() {
+function randomColorSyntax() {
   return Math.floor(Math.random() * (+max - +min)) + +min;;
 }
-function randomGreen() {
-  return Math.floor(Math.random() * (+max - +min)) + +min;;
-}
-function randomBlue() {
-  return Math.floor(Math.random() * (+max - +min)) + +min;;
-}
+
 function correctSquare() {
   correctColorSquare = Math.floor(Math.random() * (+maxDependDifficulty - +0)) + +0;;
 }
+
 function easyDifficulty() {
   document.getElementById("lvlMedium").style.visibility = "hidden";
   document.getElementById("lvlHard").style.visibility = "hidden";
@@ -45,6 +40,7 @@ function easyDifficulty() {
   hardCaller.classList.remove("levelHardBtnActive");
   newColor();
 }
+
 function mediumDifficulty() {
   document.getElementById("lvlMedium").style.visibility = "visible";
   document.getElementById("lvlHard").style.visibility = "hidden";
@@ -58,6 +54,7 @@ function mediumDifficulty() {
   hardCaller.classList.remove("levelHardBtnActive");
   newColor();
 }
+
 function hardDifficulty() {
   document.getElementById("lvlMedium").style.visibility = "visible";
   document.getElementById("lvlHard").style.visibility = "visible";
@@ -74,22 +71,25 @@ function hardDifficulty() {
 easyCaller.classList.remove("levelEasyBtnActive");
 mediumCaller.classList.remove("levelMediumBtnActive");
 hardCaller.classList.add("levelHardBtnActive");
+
 function newColor() {
   tryNums = 1;
   correctSquare();
-  correctRed = randomRed();
-  correctGreen = randomBlue();
-  correctBlue = randomGreen();
+  correctRed = randomColorSyntax();
+  correctGreen = randomColorSyntax();
+  correctBlue = randomColorSyntax();
   red.textContent = correctRed;
   green.textContent = correctGreen;
   blue.textContent = correctBlue;
   statusValue.textContent = "Ready";
   for (i = 0; i <= (colors.length - 1); i++) {
-    colors[i].style.background = "rgb(" + randomRed() + ", " + randomBlue() + ", " + randomGreen() + ")";
+    colors[i].style.background = "rgb(" + randomColorSyntax() + ", " + randomColorSyntax() + ", " + randomColorSyntax() + ")";
+    colors[i].classList.remove("fade-out");
     if (i < maxDependDifficulty) {
       colors[i].style.visibility = "visible";
       colors[i].setAttribute("onclick", "checkHit(this, this.id)");
       colors[i].style.cursor = "pointer";
+
     } else
       colors[i].style.visibility = "hidden";
   }
@@ -102,6 +102,7 @@ function newColor() {
     dropdownDifficulty.textContent = "EASY";
   }
 }
+
 function checkHit(target, targetID) {
   if (targetID === "color" + (correctColorSquare + 1)) {
     statusValue.textContent = "You win! Number of tries: " + tryNums;
@@ -112,7 +113,11 @@ function checkHit(target, targetID) {
       colors[i].style.cursor = "context-menu";
     }
   } else {
-    target.style.visibility = "hidden";
+    setTimeout(function() {
+      target.style.visibility = "hidden";
+    }, 250);
+
+    target.classList.add("fade-out");
     tryNums++;
   }
 }
