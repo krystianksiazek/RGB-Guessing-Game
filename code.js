@@ -16,6 +16,7 @@ var correctRed;
 var correctGreen;
 var correctBlue;
 var tryNums = 1;
+resizeSquares();
 statusValue.textContent = "Ready";
 dropdownDifficulty.textContent = "HARD";
 function randomColorSyntax() {
@@ -74,6 +75,7 @@ hardCaller.classList.add("levelHardBtnActive");
 function newColor() {
   tryNums = 1;
   correctSquare();
+
   correctRed = randomColorSyntax();
   correctGreen = randomColorSyntax();
   correctBlue = randomColorSyntax();
@@ -119,8 +121,12 @@ function checkHit(target, targetID) {
     tryNums++;
   }
 }
+console.log(navigator.userAgent);
 window.addEventListener("resize", resizeSquares);
 function resizeSquares() {
+  // if(window.innerWidth<window.innerHeight) {
+  //   console.log("You are on mobile");
+  // }
   for (i = 0; i <= (maxDependDifficulty - 1); i++) {
   colors[i].style.height = colors[i].offsetWidth + "px";
   }
