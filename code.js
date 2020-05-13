@@ -7,6 +7,7 @@ var blue = document.getElementById("blue");
 var easyCaller = document.getElementById("levelEasyBtn");
 var mediumCaller = document.getElementById("levelMediumBtn");
 var hardCaller = document.getElementById("levelHardBtn");
+var colors = document.querySelectorAll(".oneOfColors");
 var min = 0;
 var max = 255;
 var correctColorSquare;
@@ -14,11 +15,9 @@ var maxDependDifficulty = 9;
 var correctRed;
 var correctGreen;
 var correctBlue;
-var colors = document.querySelectorAll(".oneOfColors");
 var tryNums = 1;
 statusValue.textContent = "Ready";
 dropdownDifficulty.textContent = "HARD";
-
 function randomColorSyntax() {
   return Math.floor(Math.random() * (+max - +min)) + +min;;
 }
@@ -83,7 +82,7 @@ function newColor() {
   blue.textContent = correctBlue;
   statusValue.textContent = "Ready";
   for (i = 0; i <= (colors.length - 1); i++) {
-    colors[i].style.background = "rgb(" + randomColorSyntax() + ", " + randomColorSyntax() + ", " + randomColorSyntax() + ")";
+    colors[i].style.backgroundColor = "rgb(" + randomColorSyntax() + ", " + randomColorSyntax() + ", " + randomColorSyntax() + ")";
     colors[i].classList.remove("fade-out");
     if (i < maxDependDifficulty) {
       colors[i].style.visibility = "visible";
@@ -93,7 +92,7 @@ function newColor() {
     } else
       colors[i].style.visibility = "hidden";
   }
-  colors[correctColorSquare].style.background = "rgb(" + correctRed + ", " + correctGreen + ", " + correctBlue + ")";
+  colors[correctColorSquare].style.backgroundColor = "rgb(" + correctRed + ", " + correctGreen + ", " + correctBlue + ")";
   if (maxDependDifficulty == 9) {
     dropdownDifficulty.textContent = "HARD";
   } else if (maxDependDifficulty == 6) {
@@ -109,15 +108,20 @@ function checkHit(target, targetID) {
     for (i = 0; i <= (maxDependDifficulty - 1); i++) {
       colors[i].style.visibility = "visible";
       colors[i].setAttribute("onclick", "");
-      colors[i].style.background = "rgb(" + correctRed + ", " + correctGreen + ", " + correctBlue + ")";
+      colors[i].style.backgroundColor = "rgb(" + correctRed + ", " + correctGreen + ", " + correctBlue + ")";
       colors[i].style.cursor = "context-menu";
     }
   } else {
     setTimeout(function() {
       target.style.visibility = "hidden";
     }, 250);
-
     target.classList.add("fade-out");
     tryNums++;
+  }
+}
+window.addEventListener("resize", resizeSquares);
+function resizeSquares() {
+  for (i = 0; i <= (maxDependDifficulty - 1); i++) {
+  colors[i].style.height = colors[i].offsetWidth + "px";
   }
 }
