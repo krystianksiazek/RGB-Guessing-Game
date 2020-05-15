@@ -8,8 +8,6 @@ var easyCaller = document.getElementById("levelEasyBtn");
 var mediumCaller = document.getElementById("levelMediumBtn");
 var hardCaller = document.getElementById("levelHardBtn");
 var colors = document.querySelectorAll(".oneOfColors");
-var min = 0;
-var max = 255;
 var correctColorSquare;
 var maxDependDifficulty = 9;
 var correctRed;
@@ -20,11 +18,11 @@ resizeSquares();
 statusValue.textContent = "Ready";
 dropdownDifficulty.textContent = "HARD";
 function randomColorSyntax() {
-  return Math.floor(Math.random() * (+max - +min)) + +min;;
+  return Math.floor(Math.random() * 256);
 }
 
 function correctSquare() {
-  correctColorSquare = Math.floor(Math.random() * (+maxDependDifficulty - +0)) + +0;;
+  correctColorSquare = Math.floor(Math.random() * maxDependDifficulty);
 }
 
 function easyDifficulty() {
@@ -75,7 +73,6 @@ hardCaller.classList.add("levelHardBtnActive");
 function newColor() {
   tryNums = 1;
   correctSquare();
-
   correctRed = randomColorSyntax();
   correctGreen = randomColorSyntax();
   correctBlue = randomColorSyntax();
@@ -106,7 +103,7 @@ function newColor() {
 
 function checkHit(target, targetID) {
   if (targetID === "color" + (correctColorSquare + 1)) {
-    statusValue.textContent = "You win! Number of tries: " + tryNums;
+    statusValue.textContent = "Correct! Number of tries: " + tryNums;
     for (i = 0; i <= (maxDependDifficulty - 1); i++) {
       colors[i].style.visibility = "visible";
       colors[i].setAttribute("onclick", "");
