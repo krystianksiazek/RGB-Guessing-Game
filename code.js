@@ -8,6 +8,7 @@ var easyCaller = document.getElementById("levelEasyBtn");
 var mediumCaller = document.getElementById("levelMediumBtn");
 var hardCaller = document.getElementById("levelHardBtn");
 var colors = document.querySelectorAll(".oneOfColors");
+var newColorsBtn = document.getElementById("newColorsBtn");
 var correctColorSquare;
 var maxDependDifficulty = 9;
 var correctRed;
@@ -17,6 +18,7 @@ var tryNums = 1;
 resizeSquares();
 statusValue.textContent = "Ready";
 dropdownDifficulty.textContent = "HARD";
+
 function randomColorSyntax() {
   return Math.floor(Math.random() * 256);
 }
@@ -80,6 +82,7 @@ function newColor() {
   green.textContent = correctGreen;
   blue.textContent = correctBlue;
   statusValue.textContent = "Ready";
+  newColorsBtn.textContent = "New colors";
   for (i = 0; i <= (colors.length - 1); i++) {
     colors[i].style.backgroundColor = "rgb(" + randomColorSyntax() + ", " + randomColorSyntax() + ", " + randomColorSyntax() + ")";
     colors[i].classList.remove("fade-out");
@@ -104,6 +107,7 @@ function newColor() {
 function checkHit(target, targetID) {
   if (targetID === "color" + (correctColorSquare + 1)) {
     statusValue.textContent = "Correct! Number of tries: " + tryNums;
+    newColorsBtn.textContent = "Play again?";
     for (i = 0; i <= (maxDependDifficulty - 1); i++) {
       colors[i].style.visibility = "visible";
       colors[i].setAttribute("onclick", "");
@@ -120,11 +124,12 @@ function checkHit(target, targetID) {
 }
 console.log(navigator.userAgent);
 window.addEventListener("resize", resizeSquares);
+
 function resizeSquares() {
   // if(window.innerWidth<window.innerHeight) {
   //   console.log("You are on mobile");
   // }
   for (i = 0; i <= (maxDependDifficulty - 1); i++) {
-  colors[i].style.height = colors[i].offsetWidth + "px";
+    colors[i].style.height = colors[i].offsetWidth + "px";
   }
 }

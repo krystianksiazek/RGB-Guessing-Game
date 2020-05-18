@@ -26,7 +26,7 @@
       <div class="row m-0">
         <div class="col p-0">
           <div onclick="newColor()" id="newColorsBtn" class="float-left">
-            <strong>NEW COLORS</strong>
+            NEW COLORS
           </div>
         </div>
         <div class="col text-center">
@@ -34,52 +34,52 @@
             <strong>STATUS:
               <span id="statusValue"></strong></span></span>
         </div>
-        <div class="col p-0">
-        <div onclick="hardDifficulty()" id="levelHardBtn" class="float-right d-none d-xl-block">
-          <strong>HARD</strong>
-        </div>
-        <div onclick="mediumDifficulty()" id="levelMediumBtn" class="float-right d-none d-xl-block">
-          <strong>MEDIUM</strong>
-        </div>
-        <div onclick="easyDifficulty()" id="levelEasyBtn" class="float-right d-none d-xl-block">
-          <strong>EASY</strong>
-        </div>
-        <div class="btn-group dropleft float-right d-xl-none">
-          <button type="button" class="btn btn-danger dropdown-toggle rounded-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown">
-            <strong id="dropdownDifficulty"></strong>
-          </button>
-          <div class="dropdown-menu">
-            <a onclick="easyDifficulty()" id="levelEasyBtn" class="dropdown-item">
-              <strong>EASY</strong>
-            </a>
-            <a onclick="mediumDifficulty()" id="levelMediumBtn" class="dropdown-item">
-              <strong>MEDIUM</strong>
-            </a>
-            <a onclick="hardDifficulty()" id="levelHardBtn" class="dropdown-item">
-              <strong>HARD</strong>
-            </a>
+        <div class="col p-0 mb-1">
+          <div onclick="hardDifficulty()" id="levelHardBtn" class="float-right d-none d-xl-block">
+            <strong>HARD</strong>
+          </div>
+          <div onclick="mediumDifficulty()" id="levelMediumBtn" class="float-right d-none d-xl-block">
+            <strong>MEDIUM</strong>
+          </div>
+          <div onclick="easyDifficulty()" id="levelEasyBtn" class="float-right d-none d-xl-block">
+            <strong>EASY</strong>
+          </div>
+          <div class="btn-group dropleft float-right d-xl-none">
+            <button type="button" class="btn btn-danger dropdown-toggle rounded-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown">
+              <strong id="dropdownDifficulty"></strong>
+            </button>
+            <div class="dropdown-menu">
+              <a onclick="easyDifficulty()" id="levelEasyBtn" class="dropdown-item">
+                <strong>EASY</strong>
+              </a>
+              <a onclick="mediumDifficulty()" id="levelMediumBtn" class="dropdown-item">
+                <strong>MEDIUM</strong>
+              </a>
+              <a onclick="hardDifficulty()" id="levelHardBtn" class="dropdown-item">
+                <strong>HARD</strong>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div id="gamePanel" class="container justify-content-center">
-    <div id="lvlEasy" class="row mt-2 justify-content-md-center d-flex flex-nowrap">
-      <div onclick="checkHit(this, this.id)" id="color1" class="oneOfColors"></div>
-      <div onclick="checkHit(this, this.id)" id="color2" class="oneOfColors ml-2 mr-2"></div>
-      <div onclick="checkHit(this, this.id)" id="color3" class="oneOfColors"></div>
+    <div id="gamePanel" class="container justify-content-center">
+      <div id="lvlEasy" class="row mt-2 justify-content-md-center d-flex flex-nowrap">
+        <div onclick="checkHit(this, this.id)" id="color1" class="oneOfColors"></div>
+        <div onclick="checkHit(this, this.id)" id="color2" class="oneOfColors ml-2 mr-2"></div>
+        <div onclick="checkHit(this, this.id)" id="color3" class="oneOfColors"></div>
+      </div>
+      <div id="lvlMedium" class="row mt-2 justify-content-md-center d-flex flex-nowrap">
+        <div onclick="checkHit(this, this.id)" id="color4" class="oneOfColors"></div>
+        <div onclick="checkHit(this, this.id)" id="color5" class="oneOfColors ml-2 mr-2"></div>
+        <div onclick="checkHit(this, this.id)" id="color6" class="oneOfColors"></div>
+      </div>
+      <div id="lvlHard" class="row mt-2 justify-content-md-center d-flex flex-nowrap">
+        <div onclick="checkHit(this, this.id)" id="color7" class="oneOfColors"></div>
+        <div onclick="checkHit(this, this.id)" id="color8" class="oneOfColors ml-2 mr-2"></div>
+        <div onclick="checkHit(this, this.id)" id="color9" class="oneOfColors"></div>
+      </div>
     </div>
-    <div id="lvlMedium" class="row mt-2 justify-content-md-center d-flex flex-nowrap">
-      <div onclick="checkHit(this, this.id)" id="color4" class="oneOfColors"></div>
-      <div onclick="checkHit(this, this.id)" id="color5" class="oneOfColors ml-2 mr-2"></div>
-      <div onclick="checkHit(this, this.id)" id="color6" class="oneOfColors"></div>
-    </div>
-    <div id="lvlHard" class="row mt-2 justify-content-md-center d-flex flex-nowrap">
-      <div onclick="checkHit(this, this.id)" id="color7" class="oneOfColors"></div>
-      <div onclick="checkHit(this, this.id)" id="color8" class="oneOfColors ml-2 mr-2"></div>
-      <div onclick="checkHit(this, this.id)" id="color9" class="oneOfColors"></div>
-    </div>
-  </div>
-</body>
-<script type="text/javascript" src="code.js"></script>
+  </body>
+  <script type="text/javascript" src="code.js"></script>
 </html>
