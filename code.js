@@ -1,22 +1,21 @@
-var statusValue = document.getElementById("statusValue");
-var dropdownDifficulty = document.getElementById("dropdownDifficulty");
-var dropdownDifficultyBtn = document.getElementById("dropdown");
-var red = document.getElementById("red");
-var green = document.getElementById("green");
-var blue = document.getElementById("blue");
-var easyCaller = document.getElementById("levelEasyBtn");
-var mediumCaller = document.getElementById("levelMediumBtn");
-var hardCaller = document.getElementById("levelHardBtn");
-var colors = document.querySelectorAll(".oneOfColors");
-var newColorsBtn = document.getElementById("newColorsBtn");
-var correctColorSquare;
-var maxDependDifficulty = 9;
-var correctRed;
-var correctGreen;
-var correctBlue;
-var tryNums = 1;
+const statusValue = document.getElementById("statusValue");
+const dropdownDifficulty = document.getElementById("dropdownDifficulty");
+const dropdownDifficultyBtn = document.getElementById("dropdown");
+const red = document.getElementById("red");
+const green = document.getElementById("green");
+const blue = document.getElementById("blue");
+const easyCaller = document.getElementById("levelEasyBtn");
+const mediumCaller = document.getElementById("levelMediumBtn");
+const hardCaller = document.getElementById("levelHardBtn");
+const colors = document.querySelectorAll(".oneOfColors");
+const newColorsBtn = document.getElementById("newColorsBtn");
+let correctColorSquare;
+let maxDependDifficulty = 9;
+let correctRed;
+let correctGreen;
+let correctBlue;
+let tryNums = 1;
 resizeSquares();
-statusValue.textContent = "Ready";
 dropdownDifficulty.textContent = "HARD";
 
 function randomColorSyntax() {
@@ -83,7 +82,7 @@ function newColor() {
   blue.textContent = correctBlue;
   statusValue.textContent = "Ready";
   newColorsBtn.textContent = "New colors";
-  for (i = 0; i <= (colors.length - 1); i++) {
+  for (let i = 0; i <= (colors.length - 1); i++) {
     colors[i].style.backgroundColor = "rgb(" + randomColorSyntax() + ", " + randomColorSyntax() + ", " + randomColorSyntax() + ")";
     colors[i].classList.remove("fade-out");
     if (i < maxDependDifficulty) {
@@ -108,7 +107,7 @@ function checkHit(target, targetID) {
   if (targetID === "color" + (correctColorSquare + 1)) {
     statusValue.textContent = "Correct! Number of tries: " + tryNums;
     newColorsBtn.textContent = "Play again?";
-    for (i = 0; i <= (maxDependDifficulty - 1); i++) {
+    for (let i = 0; i <= (maxDependDifficulty - 1); i++) {
       colors[i].style.visibility = "visible";
       colors[i].setAttribute("onclick", "");
       colors[i].style.backgroundColor = "rgb(" + correctRed + ", " + correctGreen + ", " + correctBlue + ")";
@@ -129,7 +128,7 @@ function resizeSquares() {
   // if(window.innerWidth<window.innerHeight) {
   //   console.log("You are on mobile");
   // }
-  for (i = 0; i <= (maxDependDifficulty - 1); i++) {
+  for (let i = 0; i <= (maxDependDifficulty - 1); i++) {
     colors[i].style.height = colors[i].offsetWidth + "px";
   }
 }

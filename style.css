@@ -25,6 +25,7 @@ body {
   text-align: center;
   color: rgb(21, 135, 153);
   font-weight: bold;
+  transition: all 0.25s;
 }
 
 #newColorsBtn:hover {
@@ -38,6 +39,7 @@ body {
   height: 25px;
   text-align: center;
   color: rgb(255, 115, 91);
+  transition: all 0.25s;
 }
 
 #levelHardBtn:hover {
@@ -57,6 +59,7 @@ body {
   height: 25px;
   text-align: center;
   color: rgb(209, 193, 45);
+  transition: all 0.25s;
 }
 
 #levelMediumBtn:hover {
@@ -76,6 +79,7 @@ body {
   height: 25px;
   text-align: center;
   color: rgb(52, 149, 0);
+  transition: all 0.25s;
 }
 
 #levelEasyBtn:hover {
