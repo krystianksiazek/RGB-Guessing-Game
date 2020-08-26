@@ -106,26 +106,26 @@ body {
   height: 220px;
   width: 220px;
   border-radius: 10px;
-  padding: 0px;
+  padding: 0;
   cursor: pointer;
 }
 
 #dropdown {
   height: 25px;
-  padding: 0px;
+  padding: 0;
   width: 120px;
   color: white !important;
 }
 
 .dropdown-item {
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   width: auto !important;
 }
 
 .dropdown-menu {
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
 }
 
 .btn-success {
@@ -199,3 +199,4 @@ body {
   100% {
     opacity: 0;
   }
+}
