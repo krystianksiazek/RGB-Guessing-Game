@@ -15,7 +15,18 @@ let correctRed;
 let correctGreen;
 let correctBlue;
 let tryNums = 1;
+
+function resizeSquares() {
+  // if(window.innerWidth<window.innerHeight) {
+  //   console.log("You are on mobile");
+  // }
+  for (let i = 0; i <= (maxDependDifficulty - 1); i++) {
+    colors[i].style.height = `${colors[i].offsetWidth}px`;
+  }
+}
+
 resizeSquares();
+window.addEventListener('resize', resizeSquares);
 dropdownDifficulty.textContent = 'HARD';
 
 function randomColorSyntax() {
@@ -24,6 +35,36 @@ function randomColorSyntax() {
 
 function correctSquare() {
   correctColorSquare = Math.floor(Math.random() * maxDependDifficulty);
+}
+
+function newColor() {
+  tryNums = 1;
+  correctSquare();
+  correctRed = randomColorSyntax();
+  correctGreen = randomColorSyntax();
+  correctBlue = randomColorSyntax();
+  red.textContent = correctRed;
+  green.textContent = correctGreen;
+  blue.textContent = correctBlue;
+  statusValue.textContent = 'Ready';
+  newColorsBtn.textContent = 'New colors';
+  for (let i = 0; i <= (colors.length - 1); i++) {
+    colors[i].style.backgroundColor = `rgb(${randomColorSyntax()}, ${randomColorSyntax()}, ${randomColorSyntax()})`;
+    colors[i].classList.remove('fade-out');
+    if (i < maxDependDifficulty) {
+      colors[i].style.visibility = 'visible';
+      colors[i].setAttribute('onclick', 'checkHit(this, this.id)');
+      colors[i].style.cursor = 'pointer';
+    } else { colors[i].style.visibility = 'hidden'; }
+  }
+  colors[correctColorSquare].style.backgroundColor = `rgb(${correctRed}, ${correctGreen}, ${correctBlue})`;
+  if (maxDependDifficulty === 9) {
+    dropdownDifficulty.textContent = 'HARD';
+  } else if (maxDependDifficulty === 6) {
+    dropdownDifficulty.textContent = 'MEDIUM';
+  } else {
+    dropdownDifficulty.textContent = 'EASY';
+  }
 }
 
 function easyDifficulty() {
@@ -71,36 +112,6 @@ easyCaller.classList.remove('levelEasyBtnActive');
 mediumCaller.classList.remove('levelMediumBtnActive');
 hardCaller.classList.add('levelHardBtnActive');
 
-function newColor() {
-  tryNums = 1;
-  correctSquare();
-  correctRed = randomColorSyntax();
-  correctGreen = randomColorSyntax();
-  correctBlue = randomColorSyntax();
-  red.textContent = correctRed;
-  green.textContent = correctGreen;
-  blue.textContent = correctBlue;
-  statusValue.textContent = 'Ready';
-  newColorsBtn.textContent = 'New colors';
-  for (let i = 0; i <= (colors.length - 1); i++) {
-    colors[i].style.backgroundColor = `rgb(${randomColorSyntax()}, ${randomColorSyntax()}, ${randomColorSyntax()})`;
-    colors[i].classList.remove('fade-out');
-    if (i < maxDependDifficulty) {
-      colors[i].style.visibility = 'visible';
-      colors[i].setAttribute('onclick', 'checkHit(this, this.id)');
-      colors[i].style.cursor = 'pointer';
-    } else { colors[i].style.visibility = 'hidden'; }
-  }
-  colors[correctColorSquare].style.backgroundColor = `rgb(${correctRed}, ${correctGreen}, ${correctBlue})`;
-  if (maxDependDifficulty == 9) {
-    dropdownDifficulty.textContent = 'HARD';
-  } else if (maxDependDifficulty == 6) {
-    dropdownDifficulty.textContent = 'MEDIUM';
-  } else {
-    dropdownDifficulty.textContent = 'EASY';
-  }
-}
-
 function checkHit(target, targetID) {
   if (targetID === `color${correctColorSquare + 1}`) {
     statusValue.textContent = `Correct! Number of tries: ${tryNums}`;
@@ -116,17 +127,6 @@ function checkHit(target, targetID) {
       target.style.visibility = 'hidden';
     }, 250);
     target.classList.add('fade-out');
-    tryNums++;
-  }
-}
-console.log(navigator.userAgent);
-window.addEventListener('resize', resizeSquares);
-
-function resizeSquares() {
-  // if(window.innerWidth<window.innerHeight) {
-  //   console.log("You are on mobile");
-  // }
-  for (let i = 0; i <= (maxDependDifficulty - 1); i++) {
-    colors[i].style.height = `${colors[i].offsetWidth}px`;
+    tryNums += 1;
   }
 }
